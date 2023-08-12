@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: otitebah <otitebah@student.1337.ma>        +#+  +:+       +#+         #
+#    By: otitebah <otitebah@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/27 12:10:35 by otitebah          #+#    #+#              #
-#    Updated: 2023/07/27 12:25:57 by otitebah         ###   ########.fr        #
+#    Updated: 2023/08/12 16:30:41 by otitebah         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ex01
+NAME = PhoneBook
 FILES = main.cpp
 CFLAGS = -Wall -Wextra -Werror
 CC = c++

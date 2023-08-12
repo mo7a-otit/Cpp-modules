@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otitebah <otitebah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/25 07:59:53 by othmane           #+#    #+#             */
-/*   Updated: 2023/08/12 16:52:40 by otitebah         ###   ########.fr       */
+/*   Created: 2023/08/12 14:13:37 by otitebah          #+#    #+#             */
+/*   Updated: 2023/08/12 16:51:22 by otitebah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.hpp"
+#ifndef PHONBOOK_HPP
+#define PHONBOOK_HPP
 
-int main ()
-{
-    PhoneBook contact;
-    std::string str; 
-    while (str != "EXIT")
-    {
-        std::cout<<"Enter a command (ADD, SEARCH or EXIT) >\n";
-        std::getline(std::cin, str);
+#include "contact.hpp"
+#include <iostream>
+#include <string>
 
-        
-        if (str == "ADD")
-            contact.add();
-        if (str == "SEARCH\n")
-            std::cout<<"SEARCH";
-    }
-    return (0);
-}
+class PhoneBook{
+    
+    private :
+        Contact _contact[8];
+        int index;
+    
+    public :
+        void add(void);
+};
+
+
+
+#endif
