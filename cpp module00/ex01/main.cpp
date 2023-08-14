@@ -6,7 +6,7 @@
 /*   By: otitebah <otitebah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 07:59:53 by othmane           #+#    #+#             */
-/*   Updated: 2023/08/12 16:52:40 by otitebah         ###   ########.fr       */
+/*   Updated: 2023/08/14 17:06:47 by otitebah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,10 @@
 int main ()
 {
     PhoneBook contact;
-    std::string str; 
+    std::string str;
+    int i;
+
+    i = 0;
     while (str != "EXIT")
     {
         std::cout<<"Enter a command (ADD, SEARCH or EXIT) >\n";
@@ -23,7 +26,12 @@ int main ()
 
         
         if (str == "ADD")
-            contact.add();
+        {
+            if (i > 7)
+                i = 0;
+            contact.add(i);
+            i++;
+        }
         if (str == "SEARCH\n")
             std::cout<<"SEARCH";
     }

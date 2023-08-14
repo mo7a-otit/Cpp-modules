@@ -6,20 +6,24 @@
 #    By: otitebah <otitebah@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/27 12:10:35 by otitebah          #+#    #+#              #
-#    Updated: 2023/08/12 16:30:41 by otitebah         ###   ########.fr        #
+#    Updated: 2023/08/14 16:01:46 by otitebah         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = PhoneBook
-FILES = main.cpp
+FILES = main.cpp\
+			contact.cpp\
+			phonebook.cpp
+
+			
 CFLAGS = -Wall -Wextra -Werror
-CC = c++
+CXX = clang++
 OBJ = ${FILES:.cpp=.o}
 
 all : $(NAME)
 
 $(NAME) : $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+	$(CXX) $(CFLAGS) $(OBJ) -o $(NAME)
 
 clean :
 	rm -f $(OBJ)

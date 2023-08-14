@@ -6,7 +6,7 @@
 /*   By: otitebah <otitebah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 13:00:30 by otitebah          #+#    #+#             */
-/*   Updated: 2023/08/12 16:31:25 by otitebah         ###   ########.fr       */
+/*   Updated: 2023/08/14 12:37:30 by otitebah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,18 @@ class Contact{
       std::string phone_number;
       std::string secret;
   public:
-      
+  //setters
+      void set_first_name(std::string str);
+      void set_last_name(std::string str);
+      void set_nickname(std::string str);
+      void set_phone_number(std::string str);
+      void set_secret(std::string str);
+  //getters
+      std::string get_first_name(void);
+      std::string get_last_name(void);
+      std::string get_nickname(void);
+      std::string get_phone_number(void);
+      std::string get_secret(void);
 };
 
 
