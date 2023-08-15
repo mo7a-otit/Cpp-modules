@@ -6,7 +6,7 @@
 /*   By: otitebah <otitebah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 07:59:53 by othmane           #+#    #+#             */
-/*   Updated: 2023/08/14 17:06:47 by otitebah         ###   ########.fr       */
+/*   Updated: 2023/08/15 14:11:38 by otitebah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@ int main ()
     {
         std::cout<<"Enter a command (ADD, SEARCH or EXIT) >\n";
         std::getline(std::cin, str);
-
-        
         if (str == "ADD")
         {
             if (i > 7)
@@ -32,8 +30,8 @@ int main ()
             contact.add(i);
             i++;
         }
-        if (str == "SEARCH\n")
-            std::cout<<"SEARCH";
+        if (str == "SEARCH")
+            contact.search(i);
     }
     return (0);
 }
