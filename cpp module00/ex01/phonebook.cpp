@@ -6,53 +6,106 @@
 /*   By: otitebah <otitebah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 16:24:34 by otitebah          #+#    #+#             */
-/*   Updated: 2023/08/15 14:17:05 by otitebah         ###   ########.fr       */
+/*   Updated: 2023/08/16 08:08:56 by otitebah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
+int check_alpha(std::string str)
+{
+    int i;
 
+    for(i = 0;str[i]; i++)
+        if (!std::isalpha(str[i]))
+            return (1);
+    return (0);
+}
+
+int check_num(std::string str)
+{
+    int i;
+
+    for(i = 0;str[i]; i++)
+        if (!std::isdigit(str[i]))
+            return (1);
+    return (0);
+}
 
 void PhoneBook::add(int i)
 {
     std::string str;
 
-    str = "";
     std::cout<<i<<std::endl;
-    while (!std::cin.eof() && str == "")
+    while (1)
     {
         std::cout<< "Enter a first name : ";
-        if (std::getline(std::cin, str) && str != "")
+        std::getline(std::cin, str);
+        if (check_alpha(str) == 0)
+        {
             this->_contact[i].set_first_name(str);
+            break ;
+        }
+        else
+            std::cout<<"The input contains a "\
+                "non-alphabetic characters.\nPlease try again\n"\
+                "-----------------\n";
     }
-    str = "";
-    while (!std::cin.eof() && str == "")
+    while (1)
     {
         std::cout<<"Enter a last name : ";
-        if (std::getline(std::cin, str) && str != "")
+        std::getline(std::cin, str);
+        if (check_alpha(str) == 0)
+        {
             this->_contact[i].set_last_name(str);
+            break ;
+        }
+        else
+            std::cout<<"The input contains a "\
+                "non-alphabetic characters.\nPlease try again\n"\
+                "-----------------\n";
     }
-    str = "";
-    while (!std::cin.eof() && str == "")
+    while (1)
     {
         std::cout<<"Enter a nickname : ";
-        if (!std::getline(std::cin, str) && str != "")
+        std::getline(std::cin, str);
+        if (check_alpha(str) == 0)
+        {
             this->_contact[i].set_nickname(str);
+            break ;
+        }
+        else
+            std::cout<<"The input contains a "\
+                "non-alphabetic characters.\nPlease try again\n"\
+                "-----------------\n";
     }
-    str = "";
-    while (!std::cin.eof() && str == "")
+    while (1)
     {
         std::cout<<"Enter the phone number : ";
-        if (!std::getline(std::cin, str) && str != "")
+        std::getline(std::cin, str);
+        if (check_num(str) == 0)
+        {
             this->_contact[i].set_phone_number(str);
+            break ;
+        }
+        else
+            std::cout<<"The input contains an "\
+                "alphabetic characters.\nPlease try again\n"\
+                "-----------------\n";
     }
-    str = "";
     while (!std::cin.eof() && str == "")
     {
         std::cout<<"Enter a secret : ";
-        if (!std::getline(std::cin, str) && str != "")
+        std::getline(std::cin, str);
+        if (check_alpha(str) == 0)
+        {
             this->_contact[i].set_secret(str);
+            break ;
+        }
+        else
+            std::cout<<"The input contains a "\
+                "non-alphabetic characters.\nPlease try again\n"\
+                "-----------------\n";
     }
 }
 
@@ -81,36 +134,54 @@ int	ft_atoi(std::string str)
 	return (var * sign);
 }
 
-std::string put_name(std::string str, int max)
-{
-    
-}
-
 void PhoneBook::search(int index)
 {
     std::string str;
     int i;
     i = 0;
     str = "";
-
+    std::cout<<" ___________________________________________"<<std::endl;
+    std::cout<<"|   index  |first name| last name| nickname |"<<std::endl;
+    std::cout<<"|----------|----------|----------|----------|"<<std::endl;
     while (i < index)
     {
-        std::cout<<" ___________________________________________"<<std::endl;
-        std::cout<<"|   index  |first name| last name| nickname |"<<std::endl;
-        std::cout<<"|----------|----------|----------|----------|"<<std::endl;
-       
-        // std::cout<<std::setw(10);
         std::cout<<"|";
         std::cout<<std::setw(10)<<i;
         std::cout<<"|";
-        
-        std::cout<<std::setw(10)<<this->_contact[i].get_first_name();
+        if (this->_contact[i].get_first_name().size() > 10)
+        {
+            std::string resized_name;
+            resized_name = this->_contact[i].get_first_name();
+            resized_name.resize(10);
+            resized_name[9] = '.';
+            std::cout<<std::setw(10)<<resized_name;
+        }
+        else
+            std::cout<<std::setw(10)<<this->_contact[i].get_first_name();
         std::cout<<"|";
         
-        std::cout<<std::setw(10)<<this->_contact[i].get_last_name();
+        if (this->_contact[i].get_last_name().size() > 10)
+        {
+            std::string resized_name;
+            resized_name = this->_contact[i].get_last_name();
+            resized_name.resize(10);
+            resized_name[9] = '.';
+            std::cout<<std::setw(10)<<resized_name;
+        }
+        else
+            std::cout<<std::setw(10)<<this->_contact[i].get_last_name();
         std::cout<<"|";
-        
-        std::cout<<std::setw(10)<<this->_contact[i].get_nickname();
+
+        if (this->_contact[i].get_nickname().size() > 10)
+        {
+            std::string resized_name;
+            resized_name = this->_contact[i].get_nickname();
+            resized_name.resize(10);
+            resized_name[9] = '.';
+            std::cout<<std::setw(10)<<resized_name;
+        }    
+        else
+            std::cout<<std::setw(10)<<this->_contact[i].get_nickname();
         std::cout<<"|"<<std::endl;
         i++;
     }
