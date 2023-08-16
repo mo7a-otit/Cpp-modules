@@ -6,7 +6,7 @@
 /*   By: otitebah <otitebah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 16:24:34 by otitebah          #+#    #+#             */
-/*   Updated: 2023/08/16 08:08:56 by otitebah         ###   ########.fr       */
+/*   Updated: 2023/08/16 14:13:28 by otitebah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ int check_alpha(std::string str)
 int check_num(std::string str)
 {
     int i;
-
+    // if (str == "")
+    //     return (0);
     for(i = 0;str[i]; i++)
         if (!std::isdigit(str[i]))
             return (1);
@@ -36,12 +37,13 @@ void PhoneBook::add(int i)
 {
     std::string str;
 
+    str = "";
     std::cout<<i<<std::endl;
     while (1)
     {
         std::cout<< "Enter a first name : ";
         std::getline(std::cin, str);
-        if (check_alpha(str) == 0)
+        if (check_alpha(str) == 0 && str != "")
         {
             this->_contact[i].set_first_name(str);
             break ;
@@ -51,11 +53,12 @@ void PhoneBook::add(int i)
                 "non-alphabetic characters.\nPlease try again\n"\
                 "-----------------\n";
     }
+    str = "";
     while (1)
     {
         std::cout<<"Enter a last name : ";
         std::getline(std::cin, str);
-        if (check_alpha(str) == 0)
+        if (check_alpha(str) == 0 && str != "")
         {
             this->_contact[i].set_last_name(str);
             break ;
@@ -65,11 +68,12 @@ void PhoneBook::add(int i)
                 "non-alphabetic characters.\nPlease try again\n"\
                 "-----------------\n";
     }
+    str = "";
     while (1)
     {
         std::cout<<"Enter a nickname : ";
         std::getline(std::cin, str);
-        if (check_alpha(str) == 0)
+        if (check_alpha(str) == 0 && str != "")
         {
             this->_contact[i].set_nickname(str);
             break ;
@@ -79,11 +83,12 @@ void PhoneBook::add(int i)
                 "non-alphabetic characters.\nPlease try again\n"\
                 "-----------------\n";
     }
+    str = "";
     while (1)
     {
         std::cout<<"Enter the phone number : ";
         std::getline(std::cin, str);
-        if (check_num(str) == 0)
+        if (check_num(str) == 0 && str!= "")
         {
             this->_contact[i].set_phone_number(str);
             break ;
@@ -93,11 +98,12 @@ void PhoneBook::add(int i)
                 "alphabetic characters.\nPlease try again\n"\
                 "-----------------\n";
     }
-    while (!std::cin.eof() && str == "")
+    str = "";
+    while (1)
     {
         std::cout<<"Enter a secret : ";
         std::getline(std::cin, str);
-        if (check_alpha(str) == 0)
+        if (check_alpha(str) == 0 && str != "")
         {
             this->_contact[i].set_secret(str);
             break ;
@@ -124,7 +130,7 @@ int	ft_atoi(std::string str)
 	{
 		if (str[i] == '-')
 			sign = -1;
-		i++;
+		i++;str = "";
 	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
@@ -139,7 +145,6 @@ void PhoneBook::search(int index)
     std::string str;
     int i;
     i = 0;
-    str = "";
     std::cout<<" ___________________________________________"<<std::endl;
     std::cout<<"|   index  |first name| last name| nickname |"<<std::endl;
     std::cout<<"|----------|----------|----------|----------|"<<std::endl;
@@ -186,4 +191,27 @@ void PhoneBook::search(int index)
         i++;
     }
     std::cout<<"---------------------------------------------"<<std::endl;
+    while (1)
+    {
+        int h;
+        std::string hh;
+        std::cout<<"Enter an index : ";
+        std::getline(std::cin, hh);
+        if (index == 0)
+            break;
+        h = ft_atoi(hh);
+        if(h < index)
+        {
+            std::cout<<"First name     : "<<this->_contact[h].get_first_name()<<std::endl;
+            std::cout<<"Last name      : "<<this->_contact[h].get_last_name()<<std::endl;
+            std::cout<<"Nickname       : "<<this->_contact[h].get_nickname()<<std::endl;
+            std::cout<<"Phone number   : "<<this->_contact[h].get_phone_number()<<std::endl;
+            std::cout<<"Darkest secret : "<<this->_contact[h].get_secret()<<std::endl;
+            break;
+        }
+        else 
+            std::cout<<"The number is invalid\nPlease try again\n";
+    }
+        
+        
 }
