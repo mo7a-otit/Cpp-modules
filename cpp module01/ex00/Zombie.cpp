@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otitebah <otitebah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/17 08:24:55 by otitebah          #+#    #+#             */
-/*   Updated: 2023/08/17 13:27:04 by otitebah         ###   ########.fr       */
+/*   Created: 2023/08/17 08:50:56 by otitebah          #+#    #+#             */
+/*   Updated: 2023/08/17 13:11:48 by otitebah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_H
-#define ZOMBIE_H
+#include "Zombie.hpp"
 
-#include <iostream>
+Zombie::Zombie(std::string name)
+{
+    this->name = name;
+    std::cout<<"Zombie "<<this->name<<" created.\n";
+}
 
-class Zombie{
-    private:
-        std::string name;
-    public:
-        Zombie(std::string name);
-        ~Zombie();
-        void announce();
-};
+Zombie::~Zombie()
+{
+    std::cout<<"Zombie "<<this->name<<" destroyed.\n";
+}
 
-Zombie* newZombie( std::string name );
-void randomChump(std::string name);
-
-#endif
+void Zombie::announce()
+{
+     std::cout<<this->name<<" : BraiiiiiiinnnzzzZ...\n";
+}

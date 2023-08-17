@@ -6,7 +6,7 @@
 #    By: otitebah <otitebah@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/27 12:10:35 by otitebah          #+#    #+#              #
-#    Updated: 2023/08/16 09:03:10 by otitebah         ###   ########.fr        #
+#    Updated: 2023/08/17 08:45:13 by otitebah         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ FILES = main.cpp\
 			phonebook.cpp
 
 			
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g
+CFLAGS = -Wall -Wextra -Werror -std=c++98 #-fsanitize=address -g
 CXX = clang++
 OBJ = ${FILES:.cpp=.o}
 
