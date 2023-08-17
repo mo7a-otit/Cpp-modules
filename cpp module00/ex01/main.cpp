@@ -6,7 +6,7 @@
 /*   By: otitebah <otitebah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 07:59:53 by othmane           #+#    #+#             */
-/*   Updated: 2023/08/15 22:41:48 by otitebah         ###   ########.fr       */
+/*   Updated: 2023/08/16 15:39:07 by otitebah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int main ()
     {
         std::cout<<"Enter a command (ADD, SEARCH or EXIT) >\n";
         std::getline(std::cin, str);
+        if (std::cin.eof())
+            break;
         if (str == "ADD")
         {
             if (i > 7)

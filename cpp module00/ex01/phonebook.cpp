@@ -6,7 +6,7 @@
 /*   By: otitebah <otitebah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 16:24:34 by otitebah          #+#    #+#             */
-/*   Updated: 2023/08/16 14:13:28 by otitebah         ###   ########.fr       */
+/*   Updated: 2023/08/17 07:03:10 by otitebah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,10 @@ void PhoneBook::add(int i)
     while (1)
     {
         std::cout<< "Enter a first name : ";
-        std::getline(std::cin, str);
-        if (check_alpha(str) == 0 && str != "")
+        if (!std::getline(std::cin, str))
+            if (std::cin.eof())
+                break;
+        if (check_alpha(str) == 0 && !str.empty())
         {
             this->_contact[i].set_first_name(str);
             break ;
@@ -57,7 +59,9 @@ void PhoneBook::add(int i)
     while (1)
     {
         std::cout<<"Enter a last name : ";
-        std::getline(std::cin, str);
+        if (!std::getline(std::cin, str))
+            if (std::cin.eof())
+                break;
         if (check_alpha(str) == 0 && str != "")
         {
             this->_contact[i].set_last_name(str);
@@ -72,7 +76,9 @@ void PhoneBook::add(int i)
     while (1)
     {
         std::cout<<"Enter a nickname : ";
-        std::getline(std::cin, str);
+        if (!std::getline(std::cin, str))
+            if (std::cin.eof())
+                break;
         if (check_alpha(str) == 0 && str != "")
         {
             this->_contact[i].set_nickname(str);
@@ -87,7 +93,9 @@ void PhoneBook::add(int i)
     while (1)
     {
         std::cout<<"Enter the phone number : ";
-        std::getline(std::cin, str);
+        if (!std::getline(std::cin, str))
+            if (std::cin.eof())
+                break;
         if (check_num(str) == 0 && str!= "")
         {
             this->_contact[i].set_phone_number(str);
@@ -102,7 +110,9 @@ void PhoneBook::add(int i)
     while (1)
     {
         std::cout<<"Enter a secret : ";
-        std::getline(std::cin, str);
+        if (!std::getline(std::cin, str))
+            if (std::cin.eof())
+                break;
         if (check_alpha(str) == 0 && str != "")
         {
             this->_contact[i].set_secret(str);
