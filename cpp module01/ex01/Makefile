@@ -6,15 +6,15 @@
 #    By: otitebah <otitebah@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/17 18:32:40 by otitebah          #+#    #+#              #
-#    Updated: 2023/08/17 18:38:26 by otitebah         ###   ########.fr        #
+#    Updated: 2023/08/18 17:48:55 by otitebah         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-NAME = 
+NAME = zombie
 FILES = main.cpp Zombie.cpp zombieHorde.cpp
 OBJ = $(FILES:.cpp=.o)
-CXX = clamg++
+CXX = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 all : $(NAME)
