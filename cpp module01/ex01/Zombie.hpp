@@ -6,7 +6,7 @@
 /*   By: otitebah <otitebah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 18:52:53 by otitebah          #+#    #+#             */
-/*   Updated: 2023/08/18 15:40:33 by otitebah         ###   ########.fr       */
+/*   Updated: 2023/08/18 20:15:54 by otitebah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,9 @@ class Zombie{
         std::string name;
     public:
         void announce();
-        
-};
+        void SetName(std::string name);
 
+};
+Zombie*    zombieHorde( int N, std::string name );
 
 #endif
