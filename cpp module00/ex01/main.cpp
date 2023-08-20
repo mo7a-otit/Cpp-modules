@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: otitebah <otitebah@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: otitebah <otitebah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 07:59:53 by othmane           #+#    #+#             */
-/*   Updated: 2023/08/17 08:20:28 by otitebah         ###   ########.fr       */
+/*   Updated: 2023/08/20 13:03:40 by otitebah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ int main ()
     int i;
     int count;
 
-    count = 0;
     i = 0;
+    count = i;
     
     while (str != "EXIT")
     {
@@ -30,22 +30,24 @@ int main ()
             break;
         if (str == "ADD")
         {
-            if (i > 7)
-            {
-                i = 0;
-                count = 1;
-            }
             contact.add(i);
             i++;
+            if (count < 8)
+                count++;
         }
+        if (i == 8)
+            i = 0;
         if (str == "SEARCH")
         {
-            if (count == 1)
-                contact.search(7);
+            if (count == 8)
+            {
+                std::cout<<"othmane\n";
+                contact.search(count);
+            }
+                
             else
                 contact.search(i);
-        }
-            
+        }   
     }
     return (0);
 }

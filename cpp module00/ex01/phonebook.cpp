@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: otitebah <otitebah@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: otitebah <otitebah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 16:24:34 by otitebah          #+#    #+#             */
-/*   Updated: 2023/08/17 08:18:51 by otitebah         ###   ########.fr       */
+/*   Updated: 2023/08/20 14:09:00 by otitebah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ void PhoneBook::add(int i)
     std::string str;
 
     str = "";
-    std::cout<<i<<std::endl;
     while (1)
     {
         std::cout<< "Enter a first name : ";
@@ -208,6 +207,8 @@ void PhoneBook::search(int index)
         std::cout<<"Enter an index : ";
         std::getline(std::cin, hh);
         if (index == 0)
+            break;
+        if (check_num(hh) != 0)
             break;
         h = ft_atoi(hh);
         if(h < index)

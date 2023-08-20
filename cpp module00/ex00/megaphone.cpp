@@ -3,22 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: otitebah <otitebah@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: otitebah <otitebah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 08:51:25 by otitebah          #+#    #+#             */
-/*   Updated: 2023/07/25 08:51:26 by otitebah         ###   ########.fr       */
+/*   Updated: 2023/08/20 07:15:22 by otitebah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include<string>
-
-
-// string to_upper()
-// {
-
-// }
-
 
 int main(int ac, char **av)
 {
