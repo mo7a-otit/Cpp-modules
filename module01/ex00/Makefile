@@ -1,19 +1,20 @@
-NAME = brain
-FILES = main.cpp
+NAME = BraiiiiiiinnnzzzZ
+FILES = main.cpp Zombie.cpp newZombie.cpp\
+		randomChump.cpp 
 
-OBJ = ${FILES:.cpp=.o}
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 CXX = c++
+OBJ = $(FILES:.cpp=.o)
 
 all : $(NAME)
 
 $(NAME) : $(OBJ)
 	$(CXX) $(CFLAGS) $(OBJ) -o $(NAME)
 
-clean : 
+clean :
 	rm -f $(NAME)
 
 fclean : clean
 	rm -f $(OBJ)
 
-re : fclean all
+re : fclean all 
