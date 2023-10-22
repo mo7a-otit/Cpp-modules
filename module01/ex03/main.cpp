@@ -13,7 +13,7 @@ int main() {
     {
         Weapon  club = Weapon("AK");
         HumanB jim("titebah");
-        jim.setType(club);
+        jim.setType(&club);
         jim.attack();
         club.setType("shootgun");
         jim.attack();

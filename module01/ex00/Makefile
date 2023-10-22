@@ -1,6 +1,6 @@
 NAME = BraiiiiiiinnnzzzZ
-FILES = main.cpp Zombie.cpp newZombie.cpp\
-		randomChump.cpp 
+FILES = main.cpp Zombie.cpp NewZombie.cpp\
+		RandomChump.cpp 
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 CXX = c++
@@ -12,9 +12,9 @@ $(NAME) : $(OBJ)
 	$(CXX) $(CFLAGS) $(OBJ) -o $(NAME)
 
 clean :
-	rm -f $(NAME)
+	rm -f $(OBJ)
 
 fclean : clean
-	rm -f $(OBJ)
+	rm -f $(NAME)
 
 re : fclean all 

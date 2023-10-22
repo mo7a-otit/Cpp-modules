@@ -1,5 +1,5 @@
-NAME = replace
-FILES = main.cpp 
+NAME = Harl
+FILES = main.cpp Harl.cpp 
 OBJ = $(FILES:.cpp=.o)
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 CXX = c++

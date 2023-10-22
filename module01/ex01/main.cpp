@@ -2,8 +2,8 @@
 
 int main()
 {
-    Zombie *test = zombieHorde(4, "Othmane");
-    for (int i = 0; i < 4; i++)
+    Zombie *test = zombieHorde(3, "Othmane");
+    for (int i = 0; i < 3; i++)
         test[i].announce();
     delete []test;
 }

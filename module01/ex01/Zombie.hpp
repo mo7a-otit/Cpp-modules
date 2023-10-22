@@ -9,6 +9,8 @@ class Zombie{
     public :
         void    announce(void);
         void    SetName(std::string name);
+        Zombie();
+        ~Zombie();
 };
 Zombie*    zombieHorde(int N, std::string name);
 
