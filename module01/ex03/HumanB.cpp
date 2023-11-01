@@ -5,6 +5,11 @@ HumanB::HumanB(std::string _name) : name(_name)
 {
 }
 
+HumanB::~HumanB()
+{
+    
+}
+
 void HumanB::setType(Weapon* weapon)
 {
     this->_weapon = NULL;

@@ -6,6 +6,10 @@ HumanA::HumanA(std::string _name, Weapon& weapon) : type(weapon)
     name = _name;
 }
 
+HumanA::~HumanA()
+{
+}
+
 void HumanA::attack()
 {
     std::cout<<this->name
@@ -13,8 +17,3 @@ void HumanA::attack()
         <<this->type.getType()
         <<std::endl;
 }
-
-// HumanA::~HumanA()
-// {
-
-// }

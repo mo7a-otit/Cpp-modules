@@ -5,26 +5,19 @@
 void replace(std::string fileName, std::string s1, std::string s2){
 
     std::string res;
-    //open the recent file
-    std::fstream oldFile;
-    oldFile.open(fileName, std::ios::in);
 
-    //in this case we want just to read from this file so
-    //std::ios::in indicate that the file will be opened for input operation
+    std::ifstream oldFile(fileName);
     if (!oldFile.is_open()){
         std::cerr<< "Failed to open the file"<< std::endl;
         return ;
     }
     
-    //creating the new file
     std::ofstream newFile(fileName + ".replace");
     if (!newFile.is_open()){
         std::cerr<< "Failed to open the new file"<< std::endl;
         return ;
     }
 
-    //now we should search s1 in our file and replace it with s2
-    //then write the lines to ".replace file"
     std::string line;
     while (std::getline(oldFile, line)){
         size_t start = 0;
@@ -35,10 +28,9 @@ void replace(std::string fileName, std::string s1, std::string s2){
             line += s2 + res;
             start = found + s2.size();
         }
-
         newFile << line;
-    if (!oldFile.eof())
-        newFile << std::endl;
+        if (!oldFile.eof())
+            newFile << std::endl;
     }
     oldFile.close();
     newFile.close();
