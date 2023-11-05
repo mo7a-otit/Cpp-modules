@@ -1,4 +1,5 @@
 #include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int main(){
 
@@ -14,4 +15,13 @@ int main(){
         b.attack("TITEBAH");
     std::cout << "claptrap " << b << " has " 
         << b.getEnergyPts() << " energy points" << std::endl;
+    ScavTrap c("rehmani");
+    ScavTrap d (c);
+    c.attack("sisco");
+    c.takeDamage(30);
+    c.beRepaired(20);
+    c.takeDamage(90);
+    c.guardGate();
+    c.attack("other");
+
 }

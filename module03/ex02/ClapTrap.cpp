@@ -45,8 +45,8 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other){
 //member functions
 void ClapTrap::attack(const std::string& target){
 
-    if (hitPts > 0 && energyPts > 0){
         energyPts--; 
+    if (hitPts > 0 && energyPts > 0){
         std::cout << "ClapTrap " << name << " attacks "
             << target << ", causing " << attDamage
             << " points of damage!" << std::endl;
@@ -74,7 +74,7 @@ void ClapTrap::beRepaired(unsigned int amount){
 void ClapTrap::takeDamage(unsigned int amount){
 
     if (hitPts >= amount)
-        hitPts -= amount;
+        hitPts = hitPts - amount;
     else if (amount > hitPts){
         hitPts = 0;
         std::cout << "Claptrap " << name << " is already dead"

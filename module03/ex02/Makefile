@@ -1,5 +1,5 @@
-NAME = ClapTrap
-FILES = main.cpp ClapTrap.cpp
+NAME = ScavTrap
+FILES = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 CXX = c++
 OBJ = $(FILES:.cpp=.o)
