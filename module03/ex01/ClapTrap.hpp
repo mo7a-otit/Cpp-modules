@@ -30,10 +30,6 @@ class ClapTrap{
         void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);
     
-    //getter and setter
-        int getEnergyPts ();
-        int getHitPts ();
-        std::string getName () const;
 };
 std::ostream& operator<<(std::ostream&, const ClapTrap&);
 

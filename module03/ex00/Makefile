@@ -1,13 +1,13 @@
 NAME = ClapTrap
 FILES = main.cpp ClapTrap.cpp
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 CXX = c++
 OBJ = $(FILES:.cpp=.o)
 
 all : $(NAME)
 
 $(NAME) : $(OBJ)
-	$(CXX) $(CFLAGS) $(OBJ) -o $(NAME)
+	$(CXX) $(CPPFLAGS) $(OBJ) -o $(NAME)
 
 clean :
 	rm -f $(OBJ)

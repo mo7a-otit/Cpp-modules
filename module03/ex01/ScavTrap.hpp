@@ -15,11 +15,8 @@ class ScavTrap : public ClapTrap{
     //copy assignment overload
         ScavTrap& operator=(const ScavTrap&);
 
-        // ~ScavTrap() {
-       void attack(const std::string&);
-        // }
-        // ScavTrap(const ScavTrap&);
-        // ScavTrap& operator=(const ScavTrap&);
+        // member functions
+        void attack(const std::string&);
         void guardGate();
         
 };

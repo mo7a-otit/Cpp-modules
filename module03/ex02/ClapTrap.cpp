@@ -58,7 +58,7 @@ void ClapTrap::attack(const std::string& target){
 
 void ClapTrap::beRepaired(unsigned int amount){
 
-    if (hitPts > 0 && energyPts > 0 && (amount + hitPts <= 10)){
+    if (hitPts > 0 && energyPts > 0){
         
         energyPts--;
         hitPts += amount;
@@ -86,21 +86,3 @@ void ClapTrap::takeDamage(unsigned int amount){
         << " hitPts!" << std::endl;
 }
 
-/// getters 
-int ClapTrap::getEnergyPts(){
-    return energyPts;
-}
-
-int ClapTrap::getHitPts (){
-    return hitPts;
-}
-
-std::string ClapTrap::getName () const {
-    return name;
-}
-
-std::ostream& operator<<(std::ostream& out, const ClapTrap& claptrap){
-
-    out << claptrap.getName();
-    return out;
-}

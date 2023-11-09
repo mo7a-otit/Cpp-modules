@@ -1,23 +1,23 @@
-#include "Cat.hpp"
+#include "WrongCat.hpp"
 
-//Cat constructor
-Cat::Cat(){
+//WrongCat constructor
+WrongCat::WrongCat(){
 
-    type = "Cat";
+    type = "WrongCat";
     std::cout << "Constructor " << type 
         << " was created" << std::endl;
 }
 
-//Cat copy constructor
-Cat::Cat(const Cat& other){
+//WrongCat copy constructor
+WrongCat::WrongCat(const WrongCat& other){
 
-    std::cout << "Cat copy constructor called"
+    std::cout << "WrongCat copy constructor called"
         << std::endl;
     *this = other;
 }
 
 //copy assignment operator
-Cat& Cat::operator=(const Cat& other){
+WrongCat& WrongCat::operator=(const WrongCat& other){
 
     std::cout << "Copy assignment operator called"
         << std::endl;
@@ -26,20 +26,20 @@ Cat& Cat::operator=(const Cat& other){
 }
 
 //Destroctor
-Cat::~Cat(){
+WrongCat::~WrongCat(){
 
-    std::cout << "Destroctor Cat called"
+    std::cout << "Destroctor WrongCat called"
         << std::endl;
 }
 
 //member functions
-void Cat::makeSound() const {
+void WrongCat::makeSound() const {
 
     std::cout << type << " \033[1;35mMEOWING\033[0m"
         << std::endl;
 }
 
-std::string Cat::getType() const{
+std::string WrongCat::getType() const{
 
     return type;
 }

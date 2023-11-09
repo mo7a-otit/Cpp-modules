@@ -1,9 +1,20 @@
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap(){
+FragTrap::FragTrap() : ClapTrap(){
 
     std::cout << "FragTrap constructor created"
         << std::endl;
+    name = "Default ScavTrap";
+    hitPts = 100;
+    energyPts = 100;
+    attDamage = 30;
+}
+
+FragTrap::FragTrap(const FragTrap& other){
+
+    std::cout << "FragTrap Copy constructor is called"
+        << std::endl;
+    *this = other;
 }
 
 FragTrap::~FragTrap(){

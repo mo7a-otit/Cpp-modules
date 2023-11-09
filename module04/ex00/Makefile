@@ -1,13 +1,13 @@
 NAME = Animals
-FILES = main.cpp Dog.cpp Animal.cpp Cat.cpp 
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
+FILES = main.cpp Dog.cpp Animal.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
 CXX = c++
 OBJ = $(FILES:.cpp=.o)
 
 all : $(NAME)
 
 $(NAME) : $(OBJ)
-	$(CXX) $(CFLAGS) $(OBJ) -o $(NAME)
+	$(CXX) $(CPPFLAGS) $(OBJ) -o $(NAME)
 
 clean :
 	rm -f $(OBJ)
