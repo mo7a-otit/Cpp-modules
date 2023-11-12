@@ -1,6 +1,7 @@
-NAME = Animals
-FILES = main.cpp Dog.cpp Animal.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98
+NAME = amateria
+FILES = main.cpp amateria.cpp ice.cpp icharacter.cpp
+
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98 
 CXX = c++
 OBJ = $(FILES:.cpp=.o)
 

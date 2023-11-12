@@ -5,10 +5,10 @@
 
 
 int main() {
-    const Animal* meta = new Animal(); 
+    // const Animal* meta = new Animal(); 
     const Animal* j = new Dog();
     const Animal* i = new Cat();
-    delete meta;
+    // delete meta;
     delete j;
     delete i;
     std::cout << std::endl;
@@ -39,5 +39,6 @@ int main() {
         arr[i] = new Cat();
     for (int i = 0; i < 4; i++)
         delete arr[i];
+    
     return 0; 
 }
