@@ -6,7 +6,7 @@
 class MateriaSource : public IMateriaSource{
 
     private :
-        AMateria *(inventory[4]);
+        AMateria *inventory[4];
     public :
         MateriaSource();
         MateriaSource(const MateriaSource& other);

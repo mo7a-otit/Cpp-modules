@@ -13,7 +13,7 @@ Dog::Dog(){
 }
 
 //Dog copy constructor
-Dog::Dog(const Dog& other){
+Dog::Dog(const Dog& other) : Animal(), Brain(){
 
     std::cout << "Dog copy constructor with a deep copy, called"
         << std::endl;

@@ -32,7 +32,7 @@ void testt(){
 
     std::cout << "******FILL THE ARRAY******"
         << std::endl;
-    const Animal *(arr[4]);
+    const Animal *arr[4];
     for (int i = 0; i < 2; i++)
         arr[i] = new Dog();
     for (int i = 2; i < 4; i++)
@@ -41,9 +41,10 @@ void testt(){
         delete arr[i];
 }
 
+#include <cstdlib>
 int main() {
    
     testt();
-    system("leaks Animals");
+    // system("leaks Animals");
     return 0; 
 }

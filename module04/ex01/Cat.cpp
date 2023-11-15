@@ -12,7 +12,7 @@ Cat::Cat(){
 }
 
 //Cat copy constructor
-Cat::Cat(const Cat& other) : Animal(){
+Cat::Cat(const Cat& other) : Animal(), Brain(){
 
     std::cout << "Cat copy constructor with a deep copy, called"
         << std::endl;

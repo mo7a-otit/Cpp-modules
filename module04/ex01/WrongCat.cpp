@@ -9,7 +9,7 @@ WrongCat::WrongCat(){
 }
 
 //WrongCat copy constructor
-WrongCat::WrongCat(const WrongCat& other){
+WrongCat::WrongCat(const WrongCat& other) : WrongAnimal(){
 
     std::cout << "WrongCat copy constructor called"
         << std::endl;

@@ -8,7 +8,8 @@ class Character : public ICharacter{
     
     private :
         std::string name;
-        AMateria    *(inventory[4]);
+        AMateria    *inventory[4];
+        AMateria    *tmp_inventory[4];
     public :
         Character();
         Character(const Character& other);

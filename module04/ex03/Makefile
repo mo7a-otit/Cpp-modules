@@ -2,7 +2,8 @@ NAME = amateria
 FILES = amateria.cpp main.cpp ice.cpp\
 		cure.cpp character.cpp imateriasource.cpp 
 
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98 
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
+
 CXX = c++
 OBJ = $(FILES:.cpp=.o)
 

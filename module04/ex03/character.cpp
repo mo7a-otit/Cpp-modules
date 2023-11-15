@@ -7,6 +7,9 @@ Character::Character() : name("DEFAULT"){
     for (int i = 0; i < 4; i++){
         this->inventory[i] = 0;
     }
+    for (int i = 0; i < 4; i++){
+        this->inventory[i] = 0;
+    }
 }
 
 Character::Character(const Character& other) : ICharacter(){
@@ -47,6 +50,9 @@ Character::Character( std::string name_) : name(name_){
     for (int i = 0; i < 4; i++){
         this->inventory[i] = 0;
     }
+    for (int i = 0; i < 4; i++){
+        this->tmp_inventory[i] = 0;
+    }
 }
 
 std::string const& Character::getName()const{
@@ -82,9 +88,11 @@ void Character::unequip(int idx){
             << std::endl;
     }
     else if (this->inventory[idx]){
+        this->tmp_inventory[idx] = inventory[idx];
         this->inventory[idx] = 0;
         std::cout << this->name << " is unequiped at slot "
             << idx << std::endl;
+        delete tmp_inventory[idx];
     }
     else
         std::cout << this->name << " has nothing in slot "
