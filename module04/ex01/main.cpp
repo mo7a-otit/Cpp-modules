@@ -3,8 +3,8 @@
 #include "Cat.hpp"
 #include "WrongCat.hpp"
 
-
-int main() {
+void testt(){
+    
     const Animal* meta = new Animal(); 
     const Animal* j = new Dog();
     const Animal* i = new Cat();
@@ -39,5 +39,11 @@ int main() {
         arr[i] = new Cat();
     for (int i = 0; i < 4; i++)
         delete arr[i];
+}
+
+int main() {
+   
+    testt();
+    system("leaks Animals");
     return 0; 
 }

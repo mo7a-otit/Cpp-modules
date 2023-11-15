@@ -1,5 +1,6 @@
 NAME = amateria
-FILES = main.cpp amateria.cpp ice.cpp icharacter.cpp
+FILES = amateria.cpp main.cpp ice.cpp\
+		cure.cpp character.cpp imateriasource.cpp 
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 
 CXX = c++

@@ -11,6 +11,11 @@ AMateria::AMateria(std::string const & type) : type_(type){
         << std::endl;
 }
 
+AMateria::~AMateria(){
+    std::cout << "Abstract materia destroyed"
+        << std::endl;
+}
+
 AMateria::AMateria(AMateria const& other) : type_(other.type_){
 
     std::cout << "abstract amateria constructed from a copy"

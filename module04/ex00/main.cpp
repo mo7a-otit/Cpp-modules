@@ -19,7 +19,7 @@ int main() {
 
     std::cout << "\n******WRONG ANIMAL TEST******"
         << std::endl;
-    //the wrong animal test
+    //the wrong animal test to see the job of virual keyword
     const WrongAnimal* animal = new WrongAnimal(); 
     const WrongAnimal* cat = new WrongCat();
     std::cout << cat->getType() << " " << std::endl;

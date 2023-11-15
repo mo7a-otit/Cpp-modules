@@ -9,6 +9,8 @@ int main() {
     const Animal* j = new Dog();
     const Animal* i = new Cat();
     // delete meta;
+    i->makeSound();
+    j->makeSound();
     delete j;
     delete i;
     std::cout << std::endl;

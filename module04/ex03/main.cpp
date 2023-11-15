@@ -1,8 +1,10 @@
 #include "amateria.hpp"
 #include "ice.hpp"
+#include "cure.hpp"
 #include "icharacter.hpp"
-// #include "cure.hpp"
-
+#include "imateriasource.hpp"
+#include "materiasource.hpp"
+#include "character.hpp"
 
 int main() {
     IMateriaSource* src = new MateriaSource(); 
@@ -19,6 +21,12 @@ int main() {
     ICharacter* bob = new Character("bob"); 
     me->use(0, *bob);
     me->use(1, *bob);
-    delete bob; delete me; delete src;
+    me->unequip(1);
+    me->use(1, *bob);
+
+
+    delete bob; 
+    delete me; 
+    delete src;
     return 0;
 }
