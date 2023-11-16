@@ -57,3 +57,51 @@ FIXED-POINT NUMBERS  :
 - Let’s say the fractional part is 8.
 - To scale the fixed point number, we shift the integer part 8 bits to the left to make room for the fractional part.
 - The fractional var is declared as a static const int because, the fractional is variable once is initialized its value  persists across the programs lifetime this is for the static keyword. The const keyword stand for that’s the value cannot be modified after it’s intialized.
+
+
+
+
+# module 04
+
+- **Interface :**
+    - imagine we’re working on app that build shapes :( Circles, Squares… ), we want each shape to have a method called **draw( )** an interface can help us to define that common agreement, if we say we implement this interface we guarantee that we have those functions.
+- **************************Recap in cpp:**************************
+    - think of it like a building with blocks, and we have different types of blocks, called data types, and you can make your own special blocks, called functions, that do specific tasks, those function can be organized into blue prints called classes.
+- In this module we gonna learn about subtype polymorphism.
+- first of all let’s talk about the difference between the overriding and overloading.
+    - Method **overloading** is when two or more method in the same class have the same name but different parameters .
+    - Method **overriding** is when a derived class requires a different definition for an inherited method.
+- **Subtype polymorphism** is the ability to use derived classes through base class pointers and references, and *is often achieved through a mechanism called virtual function*.
+- **Subtype polymorphism** allows object of derived class to be treated as objects of the base class, this means that you can have reference or pointer to a base class .
+- **what if we don’t use the virtual keyword?**
+    - if we don’t use it we won’t have the  polymorphic behavior. instead the function of the base class gonna always be called.
+- *So here we gonna need a virtual function, also known as a virtual method, so what is this virtual? And why we need it?*
+- **Virtual** is a keyword used to declare a member function or a class member variable as ‘virtual’ which had in *OOP* a specific implication related to polymorphism and overriding.
+- Virtual function is a member function that is declared within a base class and is redefined by a derived class. So when we refer to a derived class object using pointer or reference to the base class, we can call a virtual function for that object and execute the derived class’s version of the method.
+- So why we need the virtual functions ?
+    - *They ensure that the correct function is called for an object.*
+- Virtual functions are declared with a ***virtual*** keyword in a base class, and they’re called in the run time.
+- **Rules of a virtual function** :
+    - Virtual function can’t be static.
+    - Virtual function should be accessed using a pointer or reference of base class type to achieve runtime polymorphism.
+    - The prototype should be the same in the base as well as the derived class.
+- **VIRTUAL DESTRUCTOR :**
+    - When we have an inheritance hierarchy, and we plan to use a pointer to the base class to manage objects of derived class, virtual destructor becomes important.
+    - How it’s work?
+        - When you delete an object through a pointer to the base class, cpp use the **virtual table** mechanism to determinate the actual type of object.
+            - **What is virtual table (VTables) :**
+                - first of all each class has a vtable.
+                - the vtable is a table of function pointers, where each pointer corresponds to a virtual function declared in the class.
+                - when a class has virtual function the compiler create a vtable for that class and it’s typically stored as a static array of functions.
+                - when a virtual function is called through a base class pointer or reference, the program uses the **vptr** to locate the correct entry int the base vtable.
+- **Abstract class :**
+    - an abstract class has at least one pure virtual function ( *that’s mean a function that has no definition* ), the class inheriting the abstract class must provide a definition for the pure virtual function, otherwise the subclass would become an abstract class itself.
+- **Difference between shallow copy and deep copy :**
+    - *Shallow copy :*
+        - creates new object but does not duplicate the objects inside the original object, it copies reference.
+    - *Deep copy :*
+        - if the copy constructor allocates new memory and copies the content of the pointed-to objects, creating independent copies.
+- let’s see what this “***const Animal* dogg = new Dog()***”
+    - here we have a base class Animal and a derived one Dog, we allocated memory for a Dog object on the heap, however since we assigning the Dog obj to a pointer of type ‘const Animal’, we’re treating Dog object as if it Animal. the const here means that we cannot modify the the obj pointed to by ‘doog’.
+    - **assignment : ‘dogg = new Dog();’** assigns the address of a dynamically created Dog object to the pointer dogg.
+    - **Polymorphism :** through polymorphism and the use of virtual functions, you can call functions on the pointer ‘dogg’ as if it were an ‘Animal’ pointer.
