@@ -39,6 +39,7 @@ Character::~Character(){
     for (int i = 0; i < 4; i++){
         delete this->inventory[i];
     }
+    tmp_leaks();
     std::cout << "Character named " << name
         << " was destroyed" << std::endl;
 }
@@ -60,8 +61,21 @@ std::string const& Character::getName()const{
     return this->name;
 }
 
-void Character::equip(AMateria *m){
+void Character::tmp_leaks(){
 
+    for (int i = 0; i < 4; i++)
+    {
+        if (tmp_inventory[i]){
+
+            delete tmp_inventory[i];
+            tmp_inventory[i] = 0;
+        }
+    }
+}
+
+void Character::equip(AMateria *m){
+       
+    tmp_leaks();
     if (!m){
         
         std::cout << this->name << " tried to equip but nothing \
@@ -81,6 +95,7 @@ void Character::equip(AMateria *m){
     
 }
 
+
 void Character::unequip(int idx){
 
     if (idx < 0 || idx >= 4){
@@ -92,7 +107,6 @@ void Character::unequip(int idx){
         this->inventory[idx] = 0;
         std::cout << this->name << " is unequiped at slot "
             << idx << std::endl;
-        delete tmp_inventory[idx];
     }
     else
         std::cout << this->name << " has nothing in slot "
