@@ -1,4 +1,4 @@
-NAME = 
+NAME = Bureaucrat
 FILES = main.cpp Bureaucrat.cpp
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98

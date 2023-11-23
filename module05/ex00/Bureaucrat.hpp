@@ -18,6 +18,7 @@ class Bureaucrat : public std::exception{
         std::string getName();
         int getGrade();
 
+        void setGrade(int grade_);
         void incrementGrade();
         void decrementGrade();
         int GradeTooHighException();
