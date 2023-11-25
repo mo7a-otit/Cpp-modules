@@ -3,7 +3,7 @@
 
 int main(){
 
-    Bureaucrat a;
-    Bureaucrat b (a);
+    Bureaucrat c;
+    Bureaucrat b(c);
     std::cout << b.getName() << std::endl;
 }

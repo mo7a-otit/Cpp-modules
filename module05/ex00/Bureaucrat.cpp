@@ -36,7 +36,10 @@ Bureaucrat::Bureaucrat(std::string name_, int grade_) : name(name_), grade(grade
 
     std::cout << "Constructor Bureaucrat is called"
         << std::endl;
-    setGrade(grade);
+    if (this->grade < 1)
+        throw Bureaucrat::GradeTooHighException();
+    else if (this->grade > 150)
+        throw Bureaucrat::GradeTooLowException();
 }
 
 Bureaucrat::Bureaucrat(const std::string name_) : name(name_), grade(150){
@@ -45,12 +48,6 @@ Bureaucrat::Bureaucrat(const std::string name_) : name(name_), grade(150){
         << this->getGrade();
 }
 
-Bureaucrat::Bureaucrat(int grade_) : name("default"){
-
-    std::cout << "Constructor called for " << this->name << "with a grade of "
-        << grade << std::endl;
-    setGrade(grade);
-}
 const std::string Bureaucrat::getName() const {
 
     return this->name;
@@ -61,47 +58,42 @@ int Bureaucrat::getGrade() const {
     return this->grade;
 }
 
-void Bureaucrat::setGrade(int grade_){
-    
-    if (this->grade > 150)
-        throw Bureaucrat::GradeTooLowException();
-    else if (this->grade < 0)
-        throw Bureaucrat::GradeTooHighException();
-    else
-        this->grade = grade_;    
-}
-
 void Bureaucrat::incrementGrade(){
 
     std::cout << "Trying to increment grade of " << this->getName()
         << std::endl;
-    this->setGrade(this->grade--);
+    if (this->grade - 1 < 1)
+        throw Bureaucrat::GradeTooHighException();
+    else
+        this->grade--;
 }
 
 void Bureaucrat::decrementGrade(){
 
     std::cout << "Trying to decrement the grade of " << this->getName()
         << std::endl;
-    this->setGrade(this->grade++);
+    if (this->grade + 1 > 150)
+        throw Bureaucrat::GradeTooLowException();
+    else
+        this->grade++;
 }
 
-Bureaucrat::GradeTooHighException(){
+const char* Bureaucrat::GradeTooHighException::what()const throw(){
 
         return("Grade is too high");
 }
 
-// int Bureaucrat::GradeTooLowException(){
+const char* Bureaucrat::GradeTooLowException::what()const throw(){
 
-//     if (this->grade > 150)
-//         throw("Grade is too low");
-//     else
-//         return grade;
-// }
+        return(" Grade is too low");
+}
 
 
-// std::ostream& Bureaucrat::operator<<(std::ostream& o, Bureaucrat const &beraucrat){
+std::ostream& operator<<(std::ostream& o, Bureaucrat  *bureaucrat){
 
-
-// }
+    o << bureaucrat->getName() << ", bureaucrat grade "
+        << bureaucrat->getGrade() << std::endl;
+    return (o);
+}
 
 

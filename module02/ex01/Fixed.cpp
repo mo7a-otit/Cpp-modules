@@ -30,7 +30,7 @@ Fixed::Fixed(const Fixed& other){
     *this = other;
 }
 
-std::ostream& operator<<(std::ostream& output, Fixed const &fixed){
+std::ostream& (std::ostream& output, Fixed const &fixed){
 
     output << fixed.toFloat();
     return output;
