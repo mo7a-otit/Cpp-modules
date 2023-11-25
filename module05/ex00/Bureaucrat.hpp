@@ -6,7 +6,7 @@
 #include <exception>
 
 
-class Bureaucrat : public std::exception{
+class Bureaucrat{
 
     private :
         const std::string name;
@@ -14,15 +14,30 @@ class Bureaucrat : public std::exception{
     
     public :
 
+        Bureaucrat();
+        Bureaucrat(const Bureaucrat& other);
+        Bureaucrat& operator=(const Bureaucrat& other);
+        ~Bureaucrat();
+        
         Bureaucrat(std::string name_, int grade_);
-        std::string getName();
-        int getGrade();
+        Bureaucrat(const std::string name_);
+        Bureaucrat(int grade_);
+        //getters
+        const std::string getName() const;
+        int getGrade() const;
 
         void setGrade(int grade_);
         void incrementGrade();
         void decrementGrade();
-        int GradeTooHighException();
-        int GradeTooLowException();
+
+        class GradeTooHighException : public std::exception{
+            public :
+                virtual const char *what() const throw();
+        };
+        class GradeTooLowException : public std::exception{
+            public :
+                virtual const char *what() const throw();
+        };
 
 };
 std::ostream& operator<<(std::ostream& o, Bureaucrat const &beraucrat);
