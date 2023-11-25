@@ -85,9 +85,10 @@ void Bureaucrat::decrementGrade(){
     this->setGrade(this->grade++);
 }
 
-// Bureaucrat::GradeTooHighException(){
-//         throw("Grade is too high");
-// }
+Bureaucrat::GradeTooHighException(){
+
+        return("Grade is too high");
+}
 
 // int Bureaucrat::GradeTooLowException(){
 
