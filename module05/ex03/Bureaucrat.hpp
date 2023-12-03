@@ -6,6 +6,7 @@
 #include <exception>
 
 
+class AForm;
 class Bureaucrat{
 
     private :
@@ -20,12 +21,6 @@ class Bureaucrat{
         ~Bureaucrat();
         
         Bureaucrat(std::string name_, int grade_);
-        //getters
-        const std::string getName() const;
-        int getGrade() const;
-
-        void incrementGrade();
-        void decrementGrade();
 
         class GradeTooHighException : public std::exception{
             public :
@@ -35,6 +30,21 @@ class Bureaucrat{
             public :
                 virtual const char *what() const throw();
         };
+        
+        //getters
+        const std::string getName() const;
+        int getGrade() const;
+        void incrementGrade();
+        void decrementGrade();
+
+        //added in this exercice
+        void signForm(AForm& form);
+        class GradeSigned : public std::exception{
+            public :
+                virtual const char *what() const throw();
+        };
+
+        void executeForm(AForm const & form) const;
 
 };
 std::ostream& operator<<(std::ostream& o,\

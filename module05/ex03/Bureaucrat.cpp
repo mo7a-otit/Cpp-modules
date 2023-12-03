@@ -1,4 +1,4 @@
-#include "Bureaucrat.hpp"
+#include "AForm.hpp"
 
 //default constroctor
 Bureaucrat::Bureaucrat() : name("default"), grade(150){
@@ -110,4 +110,34 @@ std::ostream& operator<<(std::ostream& o, Bureaucrat&  bureaucrat){
     return (o);
 }
 
+const char* Bureaucrat::GradeSigned::what() const throw(){
+    return (" of a problem");
+}
 
+void Bureaucrat::signForm(AForm& form){
+    
+    try{
+        form.beSigned(this);
+        std::cout << this->getName() << " signed " << form.getName()
+            << std::endl;
+    }
+    catch(std::exception &e){
+
+        std::cout << this->name << " couldn't sign " << form.getName()
+            << " because " << e.what() << std::endl;
+    }
+}
+
+void Bureaucrat::executeForm(AForm const & form) const{
+
+    try{
+        form.execute(*this);
+        std::cout << this->getName() << " executed "
+            << form.getName() << std::endl;
+    }
+    catch(std::exception &e){
+        std::cout << this->getName() << " couldn't execute " 
+            << form.getName() << " because " << e.what()
+            << std::endl;
+    }
+}

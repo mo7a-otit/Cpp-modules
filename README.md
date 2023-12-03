@@ -64,7 +64,7 @@ FIXED-POINT NUMBERS  :
 # module 04
 
 - **Interface :**
-    - imagine we’re working on app that build shapes :( Circles, Squares… ), we want each shape to have a method called **draw( )** an interface can help us to define that common agreement, if we say we implement this interface we guarantee that we have those functions.
+    - imagine we’re working on app that build shapes :( Circles, Squares… ), we want each shape to have a method called **abstract( )** an interface can help us to define that common agreement, if we say we implement this interface we guarantee that we have those functions.
 - **************************Recap in cpp:**************************
     - think of it like a building with blocks, and we have different types of blocks, called data types, and you can make your own special blocks, called functions, that do specific tasks, those function can be organized into blue prints called classes.
 - In this module we gonna learn about subtype polymorphism.
