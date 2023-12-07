@@ -2,9 +2,6 @@
 
 AForm::AForm() : name_("Default"), isSigned_(false) , gradeSigned_(150),
                 gradeExecute_(150){
-
-    std::cout << "AForm constructor called for " << this->getName()
-        << std::endl;
 }
 
 // copy constructor
@@ -23,17 +20,12 @@ AForm::AForm(const AForm& other) : name_(other.getName() + "_copy")
 
         std::cout << e.what() << std::endl;
     }
-    std::cout << "AForm copy constructor called to copy " 
-        << other.getName() << " into " << this->getName() 
-        << std::endl;
     *this = other;
 }
 
 // //copy assignement overload
 AForm& AForm::operator=(const AForm& other){
-
-    std::cout << "AForm copy assignement operator called"
-        << std::endl;
+;
     this->isSigned_ = other.isSigned_;
     return *this;
 }
@@ -41,8 +33,6 @@ AForm& AForm::operator=(const AForm& other){
 //destructor
 AForm::~AForm(){
 
-    std::cout << "AForm destructor called for " << this->getName()
-        << std::endl;
 }
 
 const char* AForm::GradeTooHighException::what()const throw(){

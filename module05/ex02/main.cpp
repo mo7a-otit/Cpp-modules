@@ -1,12 +1,13 @@
+
 #include "Bureaucrat.hpp"
-#include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 
 
-int main( void ){
+int main(){
 
+    ShrubberyCreationForm obj;
     try{
         Bureaucrat bureaucrat("othmane", 2);
         ShrubberyCreationForm shrubbery("SHRUBBERY");
@@ -21,7 +22,6 @@ int main( void ){
 
         std::cout << std::endl << "---------{ROBOT}---------"
             << std::endl;
-        for (int i(0); i < 5; i++)
             bureaucrat.executeForm(robot);
         
         std::cout << std::endl << "---------{PRESIDENT}---------"

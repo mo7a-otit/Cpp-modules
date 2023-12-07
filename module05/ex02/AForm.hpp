@@ -2,6 +2,7 @@
 #define AFORM_HPP
 
 #include <iostream>
+#include <fstream>
 #include "Bureaucrat.hpp"
 
 class AForm{

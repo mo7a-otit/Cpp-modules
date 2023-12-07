@@ -3,41 +3,28 @@
 ShrubberyCreationForm::ShrubberyCreationForm() : target_("Default_shrubbery"),
     sign_(145), exec_(137){
 
-        std::cout << "Shrubbery constructor is called"
-            << std::endl;
-        // abstract("default_file.txt");
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other)
     : target_(other.getName() + "_copy"), sign_(other.getGradeSigned()), 
     exec_(other.getGradeExecute()){
 
-    std::cout << "ShrubberyCreationForm copy constructor called"
-        << std::endl;
     *this = other;
 }
 
 ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm& other)
 {
-    std::cout << "Shrubbery copy assignement operator called"
-        << std::endl;
-    if (this == &other)
-        return *this;
+    (void)other;
     return *this;
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm(){
 
-    std::cout << "Shrubbery destructor called" 
-        << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : target_(target), 
     sign_(145), exec_(137){
 
-        std::cout << "Shrubbery parametrise constructor is called"
-            << std::endl;
-        // abstract("Parametrise_file.txt");
 }
 
 const std::string ShrubberyCreationForm::getName() const{
@@ -62,7 +49,8 @@ void ShrubberyCreationForm::execute(Bureaucrat const& executor) const{
     else if (executor.getGrade() > this->getGradeExecute())
         throw AForm::GradeTooLowException();
     
-    std::ofstream myFile(this->getName() + "_shrubbery");
+    std::string name = this->getName() + "_shrubbery";
+    std::ofstream myFile(name.c_str());
     if (myFile.is_open()){
         myFile << "      *\n";
         myFile << "     ***\n";

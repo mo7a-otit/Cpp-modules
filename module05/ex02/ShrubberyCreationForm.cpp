@@ -2,9 +2,6 @@
 
 ShrubberyCreationForm::ShrubberyCreationForm() : target_("Default_shrubbery"),
     sign_(145), exec_(137){
-
-        std::cout << "Shrubbery constructor is called"
-            << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other)
@@ -22,8 +19,6 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
 
 ShrubberyCreationForm::~ShrubberyCreationForm(){
 
-    std::cout << "Shrubbery destructor called" 
-        << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : target_(target), 
@@ -53,7 +48,8 @@ void ShrubberyCreationForm::execute(Bureaucrat const& executor) const{
     else if (executor.getGrade() > this->getGradeExecute())
         throw AForm::GradeTooLowException();
     
-    std::ofstream myFile(this->getName() + "_shrubbery");
+    std::string name = this->getName() + "_shrubbery";
+    std::ofstream myFile(name.c_str());
     if (myFile.is_open()){
         myFile << "      *\n";
         myFile << "     ***\n";

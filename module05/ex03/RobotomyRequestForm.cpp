@@ -10,16 +10,11 @@ RobotomyRequestForm::RobotomyRequestForm() : target_("Default"),
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm&
     other) : target_(other.getName() + "_copy"), sign_(72), exec_(45){
 
-    std::cout << "RobotomyRequestForm copy constructor called"
-        << std::endl;
     *this = other;
 }
 
 RobotomyRequestForm& RobotomyRequestForm::operator=(const 
     RobotomyRequestForm& other){
-
-    std::cout << "RobotomyRequestForm copy assignement operator called"
-        << std::endl;
     if (this == &other)
         return *this;
     return *this;
@@ -27,8 +22,6 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const
 
 RobotomyRequestForm::~RobotomyRequestForm(){
 
-    std::cout << "RobotomyRequestForm destructor called"
-        << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target) :
@@ -56,15 +49,13 @@ void RobotomyRequestForm::execute(Bureaucrat const& executor) const{
         throw AForm::GradeTooLowException();
     }
     else {
-        static bool i = true;
-        if (i == true){
-
+        std::srand(std::time(0));
+        int i = std::rand() % 2;
+        if (i == 0){
             std::cout << this->target_ << " has been robotomized"
                 << std::endl;
-            i = false;
         }
         else{
-            i = true;
             std::cout << this->target_ << " has been failed"
                 << std::endl;
         }

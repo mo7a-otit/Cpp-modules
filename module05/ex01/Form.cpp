@@ -75,9 +75,9 @@ int Form::getGradeExecute() const{
     return this->gradeExecute_;
 }
 
-void Form::beSigned(Bureaucrat *bureaucrat){
+void Form::beSigned(Bureaucrat& bureaucrat){
 
-        if (bureaucrat->getGrade() <= this->gradeSigned_)
+        if (bureaucrat.getGrade() <= this->gradeSigned_)
             this->isSigned_ = true;
         else
             throw Form::GradeTooLowException();

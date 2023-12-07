@@ -1,5 +1,7 @@
-NAME = Form
-FILES = main.cpp Bureaucrat.cpp AForm.cpp\
+
+NAME = AForm
+FILES = 	main.cpp\
+			Bureaucrat.cpp AForm.cpp\
 			ShrubberyCreationForm.cpp\
 			RobotomyRequestForm.cpp\
 			PresidentialPardonForm.cpp

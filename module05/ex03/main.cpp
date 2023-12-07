@@ -1,5 +1,4 @@
 #include "Bureaucrat.hpp"
-#include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
@@ -10,7 +9,7 @@ int main( void ){
 
     Intern  someRandomIntern;
     AForm*   rrf;
-    rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+    rrf = someRandomIntern.makeForm("PresidentialPardonForm", "Bender");
     delete rrf;
     try{
         Bureaucrat bureaucrat("othmane", 2);
@@ -26,9 +25,6 @@ int main( void ){
 
         std::cout << std::endl << "---------{ROBOT}---------"
             << std::endl;
-        bureaucrat.executeForm(robot);
-        bureaucrat.executeForm(robot);
-        bureaucrat.executeForm(robot);
         bureaucrat.executeForm(robot);
         std::cout << std::endl << "---------{PRESIDENT}---------"
             << std::endl;

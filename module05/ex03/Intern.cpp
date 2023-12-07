@@ -2,8 +2,6 @@
 
 
 Intern::Intern(){
-    std::cout << "Intern constructor called"
-        << std::endl;
 }
 
 Intern::Intern(const Intern& other){
@@ -16,8 +14,6 @@ Intern& Intern::operator=(const Intern& other){
 }
 
 Intern::~Intern(){
-    std::cout << "Intern destructor called"
-        << std::endl;
 }
 
 AForm* Intern::makeForm(std::string name, std::string target){
@@ -31,11 +27,18 @@ AForm* Intern::makeForm(std::string name, std::string target){
         if(name == formNames[i]){
             std::cout << "Intern creates " << name
                 << std::endl;
+            for(int a = 0; a < 3; a++){
+                if(a == i)
+                    continue;
+                delete forms[a];
+            }
             return(forms[i]);
         }
     }
+    for(int i = 0; i <3; i++)
+        delete forms[i];
     std::cout << "Intern cannot create " << name
         << " form" << std::endl;
-    return (nullptr);
+    return (NULL);
 }
 

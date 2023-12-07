@@ -41,5 +41,4 @@ std::ostream& operator<<(std::ostream& o,\
     Bureaucrat& bureaucrat);
 
 
-
 #endif

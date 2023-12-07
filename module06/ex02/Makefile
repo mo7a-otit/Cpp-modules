@@ -1,5 +1,5 @@
-NAME = Bureaucrat
-FILES = main.cpp Bureaucrat.cpp
+NAME = Base
+FILES =  Base.cpp
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 #-fsanitize=address 
 CXX = c++
