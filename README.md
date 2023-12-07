@@ -105,3 +105,37 @@ FIXED-POINT NUMBERS  :
     - here we have a base class Animal and a derived one Dog, we allocated memory for a Dog object on the heap, however since we assigning the Dog obj to a pointer of type ‘const Animal’, we’re treating Dog object as if it Animal. the const here means that we cannot modify the the obj pointed to by ‘doog’.
     - **assignment : ‘dogg = new Dog();’** assigns the address of a dynamically created Dog object to the pointer dogg.
     - **Polymorphism :** through polymorphism and the use of virtual functions, you can call functions on the pointer ‘dogg’ as if it were an ‘Animal’ pointer.
+
+
+
+
+
+
+
+
+
+    # module 06
+
+First of all, bismillah :
+
+- In this exercise they want us to create a static class, but as we know there is no static class in cpp, so a static class is a class that contains only static data members and static methods.
+- in the ex01 we gonna work with the reinterpret_cast
+    - **reinterpret_cast :**  is used to convert a pointer of some data type into a pointer of another data type, even if the data types before and after conversion are different, in another term reinterpret_cast converts type to another type by reinterpreting the underlying bit pattern which is pointed by a pointer.
+    - it does not check if the pointer type are a data pointed by the pointer is same or not.
+    - syntax :
+
+```cpp
+data_type *var_name = 
+	reinterpret_cast <data_type *>(pointer_variable);
+```
+
+- in ex02 we gonna work with dynamic_cast :
+    - To work on dynamic cast there must be one virtual function in the base class because it uses this information to decide safe down casting.
+    - So the dynamic cast work with a virtual function in the base class.
+    - **Downcasting** Casting a base class pointer or reference to a derived class pointer or reference.
+    - ******Upcasting****** casting a derived class pointer or reference to a base class pointer or reference.
+    - as we mention above dynamic casting must have one virtual function, suppose if we don’t use it, then what’s gonna happen?
+        - in that case we gonna have an error message “*Source type is not polymorphic*”.
+    - in this exercise they want us to create a function “Base* generate(void)” It randomly instanciates A, B or C and returns the instance as a Base pointer.
+        - so to do this task, i used the two functions **srand()** and **rand()**
+        - ********************srand() :******************** this is a function needed by rand() to initialize the seed value of it to the current time, and it unsure that the randome number will be different each time you run the program, as the current time is always changing.

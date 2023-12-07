@@ -24,5 +24,3 @@ class C : public Base{
 
 
 #endif
-
-void NewFunction(Base *a);
