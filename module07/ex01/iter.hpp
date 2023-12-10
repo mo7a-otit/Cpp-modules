@@ -15,5 +15,4 @@ void iter(T* addrs, int len, void (*func)(T&)){
 }
 
 
-
 #endif
