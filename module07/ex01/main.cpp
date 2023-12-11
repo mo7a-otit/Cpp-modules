@@ -12,15 +12,13 @@ void upper(std::string &c){
             std::cout << c[i];
 }
 
+template <typename T>
+void print(T& x){
+    std::cout << x << std::endl;
+
+}
+
 int main (){
-    std::cout << "-----first test-----\n";
-    int a[] = {1, 2, 3, 4, 5};
-    int len = sizeof(a) / sizeof(a[0]);
-    ::iter(a, len, add);
-    std::cout << std::endl;
-    
-    std::cout << "-----second test-----\n";
-    std::string b[] = {"O", "t", "h", "m", "a", "n", "e"};
-    ::iter(b, 7, upper);
-    std::cout << std::endl;
+    int arr[] = {1, 2, 3, 4 ,5};
+    iter(arr, 5, print<const int>);
 }
