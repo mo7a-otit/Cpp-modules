@@ -26,8 +26,6 @@ class Array{
             *this = other;
         }
         Array& operator=(const Array& other){
-            // if (this->size_)
-            //     delete [] this->arr;
             if (other.size_){
                 this->size_ = other.size_;
                 this->arr = new T[this->size_];
@@ -47,7 +45,7 @@ class Array{
 			}
 		};
         T& operator[](unsigned int n){
-            if (n > this->size_)
+            if (n >= this->size_)
                 throw Array::OutofBounds();
             return this->arr[n];
         }
