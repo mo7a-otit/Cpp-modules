@@ -26,6 +26,8 @@ class Array{
             *this = other;
         }
         Array& operator=(const Array& other){
+            // if(other.arr)
+            //     delete []other.arr;
             if (other.size_){
                 this->size_ = other.size_;
                 this->arr = new T[this->size_];

@@ -1,7 +1,6 @@
 #include "Array.hpp"
 
-
-int main(){
+void test(){
 
     std::cout << "Creating an array of size 5" << std::endl;
     Array<int> arr(5);
@@ -40,4 +39,8 @@ int main(){
     catch(std::exception &e){
         std::cout << e.what() << std::endl;
     }
+}
+int main(){
+    test();
+    system("leaks Array");
 }
