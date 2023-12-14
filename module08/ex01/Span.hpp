@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 
 class Span{
@@ -19,6 +20,7 @@ class Span{
 
         unsigned int getSize();
         void addNumber(unsigned int nbr);
+        void addNumbers(std::vector<unsigned int>& nbr);
         unsigned int shortestSpan();
         unsigned int longestSpan();
 };

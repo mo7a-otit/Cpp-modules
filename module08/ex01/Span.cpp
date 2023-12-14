@@ -24,6 +24,12 @@ void Span::addNumber(unsigned int nbr){
     this->container.push_back(nbr);
 }
 
+void Span::addNumbers(std::vector<unsigned int>& nbr){
+    if (this->size < this->container.size() + nbr.size())
+        throw std::invalid_argument("No space left to add numbers");
+    this->container.insert(container.end(), nbr.begin(), nbr.end());
+}
+
 unsigned int Span::shortestSpan(){
     if (this->container.empty() || this->container.size() == 1)
         throw std::invalid_argument("Can't find the shortest span");

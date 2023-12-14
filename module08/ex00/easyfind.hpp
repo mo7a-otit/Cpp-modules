@@ -5,8 +5,6 @@
 #include <list>
 #include <vector>
 #include <deque>
-#include <forward_list>
-#include <array>
 
 template<typename T>
 int easyfind(T& container, int b){
