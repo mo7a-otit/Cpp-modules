@@ -18,7 +18,6 @@ class Span{
 
         Span(unsigned int N);
 
-        unsigned int getSize();
         void addNumber(unsigned int nbr);
         void addNumbers(std::vector<unsigned int>& nbr);
         unsigned int shortestSpan();

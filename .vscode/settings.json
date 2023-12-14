@@ -57,6 +57,8 @@
         "algorithm": "cpp",
         "list": "cpp",
         "forward_list": "cpp",
-        "deque": "cpp"
+        "deque": "cpp",
+        "span": "cpp",
+        "stack": "cpp"
     }
 }

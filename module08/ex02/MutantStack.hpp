@@ -5,7 +5,7 @@
 #include <iostream>
 #include <stack>
 
-template <typename T, typename container = std::deque<T> >
+template <typename T, typename container = std::vector<T> >
 class MuntanStack : public std::stack<T, container> {
     public :
     MuntanStack() : std::stack<T, container>(){};
