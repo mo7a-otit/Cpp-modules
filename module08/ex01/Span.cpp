@@ -3,12 +3,13 @@
 Span::Span() : size(0){
 }
 
-Span::Span(const Span& other) : size(other.size){
+Span::Span(const Span& other){
     *this = other;
 }
 
 Span& Span::operator=(const Span& other){
     this->size = other.size;
+    this->container = other.container;
     return *this;
 }
 
@@ -30,19 +31,36 @@ void Span::addNumbers(std::vector<unsigned int>& nbr){
     this->container.insert(container.end(), nbr.begin(), nbr.end());
 }
 
-unsigned int Span::shortestSpan(){
-    if (this->container.empty() || this->container.size() == 1)
-        throw std::invalid_argument("Can't find the shortest span");
-    std::vector<int> copy = this->container;
-    std::sort(copy.begin(), copy.end(), std::less<int>());
-    return *(copy.begin());
-}
 
 unsigned int Span::longestSpan(){
     if (this->container.empty() || this->container.size() == 1)
         throw std::invalid_argument("Can't find the longest span");
     std::vector<int> copy = this->container;
     std::sort(copy.begin(), copy.end(), std::greater<int>());
-    return *(copy.begin());
+    std::vector<int>::iterator itb = copy.begin();
+    std::cout << "The begining : "<< *itb << std::endl;
+    std::vector<int>::iterator ite = copy.end();
+    ite--;
+    std::cout << "The end : " << *ite << std::endl;
+    std::cout << *itb << " - " << *ite << " = ";
+    return (*itb - *ite);
+}
+
+unsigned int Span::shortestSpan(){
+    if (this->container.empty() || this->container.size() == 1)
+        throw std::invalid_argument("Can't find the shortest span");
+    std::sort(this->container.begin(), this->container.end(), std::greater<int>());
+    std::vector<int>::iterator itb;
+    std::vector<int>::iterator itPrv= std::prev(this->container.begin(), 1);
+    unsigned int res = UINT_MAX;
+    unsigned int distance = 0;
+    for (itb = this->container.begin(); itb != this->container.end(); itb++){
+        distance = *itPrv - *itb;
+        if (distance < res)
+            res = distance;
+        itPrv++;
+    }
+    std::cout << "The shortest Span is : ";
+    return res;
 }
 

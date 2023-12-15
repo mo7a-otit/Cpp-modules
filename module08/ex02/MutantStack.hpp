@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include <stack>
+#include <vector>
 
 template <typename T, typename container = std::vector<T> >
 class MuntanStack : public std::stack<T, container> {
