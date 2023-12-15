@@ -49,16 +49,17 @@ unsigned int Span::longestSpan(){
 unsigned int Span::shortestSpan(){
     if (this->container.empty() || this->container.size() == 1)
         throw std::invalid_argument("Can't find the shortest span");
-    std::sort(this->container.begin(), this->container.end(), std::greater<int>());
-    std::vector<int>::iterator itb;
-    std::vector<int>::iterator itPrv= std::prev(this->container.begin(), 1);
+    std::sort(this->container.begin(), this->container.end());
+    std::vector<int>::iterator itb = this->container.begin();
+    std::vector<int>::iterator itSec;
     unsigned int res = UINT_MAX;
     unsigned int distance = 0;
-    for (itb = this->container.begin(); itb != this->container.end(); itb++){
-        distance = *itPrv - *itb;
+    for (itSec = itb + 1; itSec != this->container.end(); itSec++){
+       
+        distance = *itSec - *itb;
         if (distance < res)
             res = distance;
-        itPrv++;
+        itb++;
     }
     std::cout << "The shortest Span is : ";
     return res;
