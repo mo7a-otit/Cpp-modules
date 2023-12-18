@@ -6,11 +6,13 @@
 #include <string>
 #include <map>
 #include<algorithm>
+#include <time.h>
 
 
 class Map{
     private :
-        std::map<std::string, int> map;
+        std::map<std::string, float> map;
+        // std::vector<std::pair<std::string, float> > map; 
     public :
         Map();
         Map(const Map& oldObj);    

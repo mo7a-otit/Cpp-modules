@@ -48,6 +48,9 @@ std::string getDate(std::string line, size_t pipeFound){
 void checkDate(std::string key){
     if (key[4] != '-' || key [7] != '-')
         throw std::invalid_argument("Error: invalid input => ");
+    // tm res;
+    // if (strptime(key.c_str(), "%Y-%m-%d", &res) == NULL)
+    //     throw std::invalid_argument("Error: invalid date => ");
     char year[5];
     char month[3];
     char day[3];
@@ -58,7 +61,6 @@ void checkDate(std::string key){
     int Y = std::atoi(year);
     int M = std::atoi(month);
     int D = std::atoi(day);
-    // std::cout << "year : " << Y << " month : " << M << " Day : " << D << std::endl;
     if (Y > 2022 || M > 12 || D > 31)
         throw std::invalid_argument("Error: invalid date => ");
     else if (Y < 2009 || M < 0 || D < 0)
@@ -66,27 +68,32 @@ void checkDate(std::string key){
 }
 
 std::string getAfterPipe(std::string line, size_t pipeFound){
-    // std::cout << line << std::endl;
-    // (void)pipeFound;
     line.erase(0, pipeFound);
+    int count = 0;
     if(line[0]){
         if (line[1] != ' ')
             throw std::invalid_argument("Error: invalid input => ");
+        if (!line[2])
+            throw std::invalid_argument("Error: no value found => ");
         for (int i = 2; line[i]; i++){
-            if(!std::isdigit(line[i]))
+            if(!std::isdigit(line[i]) && line[i] != '.')
                 throw std::invalid_argument("Error: invalid input111 => ");
+            if(line[i] == '.')
+                count++;
         }
+        if(count != 1 && count != 0)
+            throw std::invalid_argument("Error: invalid value => ");
         line.erase(0, 2);
         return line;
     }
     return NULL;
 }
 
-int getValue(std::string value){
+float getValue(std::string value){
     int newValue = std::atoi(value.c_str());
     if (newValue < 0 || newValue > 1000)
         throw std::invalid_argument("Error: invalid range => ");
-    return newValue;
+    return (float)newValue;
 }
 
 void Map::checkLine(std::string line){
@@ -96,8 +103,12 @@ void Map::checkLine(std::string line){
         std::string key = getDate(line, pipeFound);
         checkDate(key);
         std::string value = getAfterPipe(line, pipeFound);
-        int valueInt = getValue(value);
-        std::cout << "The value is :" << valueInt << std::endl;
+        float valueFloat = getValue(value);
+        (void)valueFloat;
+        this->map[key] = valueFloat;
+        std::map<std::string, float>::iterator it = this->map.begin();
+        std::cout << it->first << "=>" << it->second << std::endl;
+        it++;
     }catch(std::exception& e){
         std::cout << e.what() << line << std::endl;
     }
@@ -121,14 +132,14 @@ void Map::Open_file(std::string fileName){
             i++;
         }
         else {
-            // parsing(line);
-            // std::cout << " i = " << i << std::endl;
-            // try{
-                checkLine(line);
-            // }catch(std::exception &e){
-            //     std::cout << e.what() << std::endl;
-            // }
-            // std::cout << line << std::endl;
+            checkLine(line);
         }
     }
+    // std::map<std::string, float>::iterator itb = this->map.begin();
+    // std::map<std::string, float>::iterator ite = this->map.end();
+    // while (itb != ite){
+    //     std::cout << itb->first << "=>" << itb->second << std::endl;
+    //     itb++;
+    // }
+    
 }
