@@ -1,5 +1,5 @@
-NAME = btc
-FILES = main.cpp BitcoinExchange.cpp
+NAME = RPN
+FILES = main.cpp RPN.cpp
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 #-fsanitize=address -g3
 CXX = c++

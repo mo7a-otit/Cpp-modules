@@ -70,10 +70,12 @@ std::string getAfterPipe(std::string line, size_t pipeFound){
         if (!line[2])
             throw std::invalid_argument("Error: no value found => ");
         for (int i = 2; line[i]; i++){
-            if(!std::isdigit(line[i]) && line[i] != '.')
+            if((!std::isdigit(line[i]) && line[i] != '.') || line[2] == '.')
                 throw std::invalid_argument("Error: invalid input => ");
             if(line[i] == '.')
                 count++;
+            if(line[i] == '.' && !line[i + 1])
+                throw std::invalid_argument("Error: invalid value => ");
         }
         if(count != 1 && count != 0)
             throw std::invalid_argument("Error: invalid value => ");
