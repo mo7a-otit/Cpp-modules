@@ -12,7 +12,10 @@
 class Map{
     private :
         std::map<std::string, float> map;
+        std::map<std::string, float> CSVmap;
         // std::vector<std::pair<std::string, float> > map; 
+        // typedef std::vector<std::pair<std::string, float> >::iterator it;
+        typedef std::map<std::string, float>::iterator it;
     public :
         Map();
         Map(const Map& oldObj);    
@@ -22,6 +25,8 @@ class Map{
         // void DateValue(std::string &line);
         void Open_file(std::string fileName);
         void checkLine(std::string line);
+        void f_CSVfile(std::string keyInput, float valueFloat);
+        void data_CSVfile(std::ifstream& CSVfile);
 };
 
 #endif
