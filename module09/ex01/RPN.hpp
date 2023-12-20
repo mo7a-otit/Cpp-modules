@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include <algorithm>
+#include <stack>
 
 
 
@@ -18,6 +19,19 @@
 
 #define REMOVE_SPACES str.erase(remove_if(str.begin(),\
                                  str.end(), isspace), str.end())
+
+#define INVALID_CHAR ("Error: invalid character")
+
+#define BIG_NMBR ("Error: Big Number")
+
+#define FINAL_ERR ("Error")
+
+#define STACK_ERR ("Error: stack doesn't have two numbers")
+
+#define DIVISION_ERR ("Error: divisiion can't be done")
+
+#define PRGRAM_ERR ("The program must take an inverted Polish \
+mathematical expression as an argument")
 
 void RpnExpression(std::string);
 
