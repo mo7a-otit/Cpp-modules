@@ -29,9 +29,9 @@ void sortAlgo(char **av){
     for (ITERATOR itb = vec.begin(); itb != vec.end(); itb++)
         std::cout << *itb << " ";
     std::cout << std::endl;
-    double timeee = (double)(end - start)/CLOCKS_PER_SEC;
+    double timeee = (double)(end - start);
     std::cout << "Time to process a range of " << j 
-        << " elements with std::vector : " << timeee
+        << " elements with std::vector : "<< std::fixed << timeee
         << " us" << std::endl; 
 
     //////deque container///////
@@ -47,9 +47,9 @@ void sortAlgo(char **av){
     clock_t startt = clock();
     merge_insert(deq);
     clock_t endd = clock();
-    double timee = (double)(endd - startt)/CLOCKS_PER_SEC;
+    double timee = (double)(endd - startt);
     std::cout << "Time to process a range of " << j 
-        << " elements with std::deque : " << timee
+        << " elements with std::deque : " << std::fixed << timee
         << " us" << std::endl; 
     // std::cout << "deque After : " << std::endl;
     // for (ITERATOR_ itb = deq.begin(); itb != deq.end(); itb++)
