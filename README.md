@@ -139,3 +139,59 @@ data_type *var_name =
     - in this exercise they want us to create a function “Base* generate(void)” It randomly instanciates A, B or C and returns the instance as a Base pointer.
         - so to do this task, i used the two functions **srand()** and **rand()**
         - ********************srand() :******************** this is a function needed by rand() to initialize the seed value of it to the current time, and it unsure that the randome number will be different each time you run the program, as the current time is always changing.
+     
+
+
+# module 07
+
+- a template in cpp is one of the most powerful tools in cpp, the idea is to pass the data type as a parameter so that we don’t need to write the same code for different data types.
+- Templates are expanded at compiler time. This is like macros, the difference is does type checking before template expansion.
+- So the function template we write a generic function that can be used for different data types.
+- So, a function template starts with the keyword **************template************** followed by template parameters inside <> which’s followed by the function definiton .
+    
+    ```cpp
+    template <typename T>
+    T functionName(T parameter1, T parameter2, ...) {
+        // code
+    }
+    ```
+    
+    - In the above code, T is a template argument that accepts different data types, and type name is a keyword.
+    - So when an argument is passed to functionName(), the compiler generates a new version of, functionName(),for the given data type.
+- **********************************************Calling a function Template :**********************************************
+    - Once we’ve declared and defined a function template, we can call it in other functions or template with the following syntax :
+        
+        `functionName<dataType>(parameter1, parameter2,...);`
+
+
+
+
+
+# module08
+
+- ********STL******** the standard Template Library is a set of C++ template classes to provide common programming data structures and function in C++.
+- the ******STL****** is a collection of algorithms, data structures, and other components that can be used to simplify the development of C++.
+- let’s see the type of containers :
+    - ****************Sequence containers :**************** these store elements in a specific order, allowing access by position(**********std::vector, std::deque, std::list…).**********
+    - ************************Associative containers :************************ These store elements based on key-value pairs, allowing fast lookup and retrieval(********std::map, std::set********).
+    - **************************************Unordered containers :************************************** These store elements without any specific order, offering efficient insertion and deletion(***************std::unordered_map, std::unordered_set***************).
+- **********************Iterator :********************** An iterator is an obj that can traverse a container class without the user have to know how the container is implemented.
+- let’s give an example to iterator : imagine a container is a book and the iterator as a pointer finger, you can use your finger to point to different books on the shelf (elements in container) and access their information. however, the finger is not a physically part of the book; it’s an external tool used to interact with it.
+    - all containers provide ( at least ) two types iterators :
+        - ****************container::iterator =**************** provides a read/write iterator.
+        - ************container::const_iterator =************ provides a read-only iterator.
+- int he second exercise they want us to work with ***stack.***
+    - So stack is a container adaptors with ************************************************LIFO(Last In First Out)************************************************ type of working, where a new element is added at one end (top) and an element is removed from that end only. Stack uses an encapsulated object of either ************vector************ or ********************************deque(by default)******************************** or **************list (sequential container class),************** providing a specefic set of member functions to access its element.
+- ********************Stack syntax :********************
+    - the header should be used is <stack>.
+    
+    ```cpp
+    template <class Type, class Container = deque<Type> > 
+    class stack;
+    ```
+    
+    - ************Type -************ is the type of elements contained in the std::stack. and it can be any valid C++ type or even a user-defined type.
+    - ************Container -************ is the type of underlying container object.
+    - ********************member types :********************
+        - ******T -****** the first template parameter ans it denote the elements type.
+        - The second one ********************Container.******************** it denotes the underlying container type.
