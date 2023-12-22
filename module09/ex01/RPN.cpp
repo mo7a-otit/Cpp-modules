@@ -71,7 +71,7 @@ int RpnOperation(std::string str){
                 break;
         }
     }
-    if (stack.size() < 1 || stack.size() == 0)
+    if (stack.size() != 1)
         throw std::invalid_argument FINAL_ERR;
     if (j == 0)
         throw std::invalid_argument PRGRAM_ERR;
